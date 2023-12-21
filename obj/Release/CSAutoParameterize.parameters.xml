@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DbRent-Web.config Connection String" description="DbRent Parametry połączenia używane w pliku web.config przez aplikację w celu uzyskiwania dostępu do bazy danych." defaultValue="Server=renthousedbserver.database.windows.net;User ID=projektadmin;Password=Password!@#$;Database=renthouse_db;Trusted_Connection=False;Encrypt=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\fb\\source\\repos\\WebApplication1\\WebApplication1\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DbRent']/@connectionString" />
+  </parameter>
+</parameters>
