@@ -41,6 +41,22 @@ namespace WebApplication1
 
         }
 
+        protected bool IsOnlyDigits()
+        {
+            string inputText = Box_Tel.Text; // Zakładam, że masz kontrolkę o nazwie Box_Text do wprowadzania danych
+            Regex regex = new Regex(@"^\d+$"); // Wyrażenie regularne sprawdzające, czy ciąg składa się tylko z cyfr
+
+            Match match = regex.Match(inputText);
+            if (match.Success)
+                return true;
+            else
+            {
+                Error.Visible = true;
+                Error.Text = "Wprowadzono nieprawidłowy numer. Proszę wprowadzić tylko cyfry.";
+                return false;
+            }
+        }
+
 
         protected bool IsNew()
         {
@@ -81,12 +97,13 @@ namespace WebApplication1
                 }
                 else
                 {
-                    if (Box_Tel.Text.Length < 9)
+                    if (Box_Tel.Text.Length < 9 || Box_Tel.Text.Length > 10 || !IsOnlyDigits())
                     {
                         Error.Visible = true;
-                        Error.Text = "Podany numer telefonu jest za krótki";
+                        Error.Text = "Podany numer telefonu jest nieprawidłowy";
                         return true;
                     }
+
                     else
                     {
                         if (!IsMail())
